@@ -7,3 +7,9 @@ ru:
       place: Место
       prize: Выигрыш
       rating: Рейтинг
+    show:
+      change_name_password: Сменить имя и пароль
+      date: Дата
+      question: Вопрос
+      prize: Выигрыш
+      hints: Подсказки
