@@ -1,1 +1,9 @@
 ru:
+  users:
+    index:
+      for_game: За игру
+      games: Игр
+      name: Имя
+      place: Место
+      prize: Выигрыш
+      rating: Рейтинг
