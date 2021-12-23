@@ -10,6 +10,6 @@ ru:
     show:
       change_name_password: Сменить имя и пароль
       date: Дата
-      question: Вопрос
-      prize: Выигрыш
       hints: Подсказки
+      prize: Выигрыш
+      question: Вопрос
