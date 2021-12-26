@@ -4,5 +4,6 @@
 // that code so it'll be compiled.
 
 import Rails from "@rails/ujs"
+import 'bootstrap/dist/js/bootstrap';
 
 Rails.start()
