@@ -72,6 +72,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.10.1)
+      devise (>= 4.8.0)
     erubi (1.10.0)
     ffi (1.15.4)
     font-awesome-rails (4.7.0.8)
@@ -185,6 +187,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   devise
+  devise-i18n
   font-awesome-rails
   jbuilder (~> 2.7)
   pg (~> 1.1)
