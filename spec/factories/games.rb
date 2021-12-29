@@ -3,9 +3,9 @@ FactoryBot.define do
     association :user
 
     finished_at nil
-    current_level 0
-    is_failed false
-    prize 0
+    current_level { 0 }
+    is_failed { false }
+    prize { 0 }
 
     factory :game_with_questions do
       after(:build) do |game|
