@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe GameQuestion, type: :model do
   let(:game_question) do
-    FactoryBot.create(:game_question, a: 2, b: 1, c: 4, d: 3, finished_at: nil)
+    FactoryBot.create(:game_question, a: 2, b: 1, c: 4, d: 3)
   end
 
   # Группа тестов на игровое состояние объекта вопроса
