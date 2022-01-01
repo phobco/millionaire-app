@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :game do
     association :user
 
-    finished_at nil
+    finished_at { nil }
     current_level { 0 }
     is_failed { false }
     prize { 0 }
