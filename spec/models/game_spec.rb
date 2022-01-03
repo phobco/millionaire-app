@@ -91,4 +91,24 @@ RSpec.describe Game, type: :model do
       expect(game_w_questions.status).to eq(:money)
     end
   end
+
+  context '.answer_current_question!' do
+    it 'false if game finished and answer correct' do
+      game_w_questions.finished_at = Time.now
+      expect(game_w_questions.answer_current_question!('d')).to eq(false)
+    end
+
+    it 'true then answer is correct' do
+      expect(game_w_questions.answer_current_question!('d')).to eq(true)
+    end
+
+    it 'false then answer is wrong' do
+      expect(game_w_questions.answer_current_question!('a')).to eq(false)
+    end
+
+    it 'last correct answer' do
+      game_w_questions.current_level == Question::QUESTION_LEVELS.max
+      expect(game_w_questions.answer_current_question!('d')).to eq(true)
+    end
+  end
 end
