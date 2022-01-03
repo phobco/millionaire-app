@@ -66,7 +66,7 @@ class Game < ApplicationRecord
   end
 
   def answer_current_question!(letter)
-    return false if time_out! || finished? # законченную игру низя обновлять
+    return false if time_out! || finished?
 
     if current_game_question.answer_correct?(letter)
       if current_level == Question::QUESTION_LEVELS.max
