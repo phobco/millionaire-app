@@ -59,8 +59,11 @@ RSpec.describe Game, type: :model do
       expect(user.balance).to eq prize
     end
 
-    it '.current_game_question .previous_level' do
+    it '.current_game_question' do
       expect(game_w_questions.current_game_question).to be_a(GameQuestion)
+    end
+
+    it '.previous_level' do
       expect(game_w_questions.previous_level).to eq(game_w_questions.current_level - 1)
     end
   end
@@ -92,23 +95,35 @@ RSpec.describe Game, type: :model do
     end
   end
 
-  context '.answer_current_question!' do
-    it 'false if game finished and answer correct' do
-      game_w_questions.finished_at = Time.now
+  context 'answer_current_question!' do
+    it 'takes answer after timeout' do
+      game_w_questions.created_at = 36.minutes.ago
+      
       expect(game_w_questions.answer_current_question!('d')).to eq(false)
+      expect(game_w_questions.status).to eq(:timeout)
+      expect(game_w_questions.finished?).to be(true)
     end
 
-    it 'true then answer is correct' do
+    it 'answer is correct' do
       expect(game_w_questions.answer_current_question!('d')).to eq(true)
+      expect(game_w_questions.status).to eq(:in_progress)
+      expect(game_w_questions.finished?).to be(false)
     end
 
-    it 'false then answer is wrong' do
+    it 'answer is wrong' do
       expect(game_w_questions.answer_current_question!('a')).to eq(false)
+      expect(game_w_questions.status).to eq(:fail)
+      expect(game_w_questions.finished?).to be(true)
     end
 
-    it 'last correct answer' do
-      game_w_questions.current_level == Question::QUESTION_LEVELS.max
-      expect(game_w_questions.answer_current_question!('d')).to eq(true)
+    it 'last question and answer is correct' do
+      q = game_w_questions.current_game_question
+      game_w_questions.current_level = Question::QUESTION_LEVELS.max
+      game_w_questions.answer_current_question!(q.correct_answer_key)
+
+      expect(game_w_questions.prize).to eq Game::PRIZES.last
+      expect(game_w_questions.status).to eq :won
+      expect(game_w_questions.finished?).to be true
     end
   end
 end
