@@ -122,8 +122,8 @@ RSpec.describe Game, type: :model do
       game_w_questions.answer_current_question!(q.correct_answer_key)
 
       expect(game_w_questions.prize).to eq Game::PRIZES.last
-      expect(game_w_questions.status).to eq :won
-      expect(game_w_questions.finished?).to be true
+      expect(game_w_questions.status).to eq(:won)
+      expect(game_w_questions.finished?).to be(true)
     end
   end
 end
