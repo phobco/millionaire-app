@@ -108,8 +108,6 @@ RSpec.describe Game, type: :model do
       end
 
       context 'and the question is last' do
-        
-        
         it 'finishes the game with won status' do
           game_w_questions.current_level = Question::QUESTION_LEVELS.max
           game_w_questions.answer_current_question!(q.correct_answer_key)
