@@ -119,6 +119,20 @@ RSpec.describe GamesController , type: :controller do
       expect(flash[:alert]).to be
     end
 
+    it 'call 50/50 help' do
+      expect(game_w_questions.fifty_fifty_used).to be(false)
+      expect(game_w_questions.current_game_question.help_hash[:fifty_fifty]).not_to be
+
+      put :help, params: { id: game_w_questions.id, help_type: :fifty_fifty }
+      game = assigns(:game)
+
+      expect(game.fifty_fifty_used).to eq(true)
+      expect(game.status).to be(:in_progress)
+      expect(game.current_game_question.help_hash[:fifty_fifty].size).to eq(2)
+      expect(game.current_game_question.help_hash[:fifty_fifty]).to include(game.current_game_question.correct_answer_key)
+      expect(response).to redirect_to(game_path(game))
+    end
+
     context 'and the answer is wrong' do
       it 'finishes the game with fail status' do
         put :answer, params: { id: game_w_questions.id, letter: 'a' }
