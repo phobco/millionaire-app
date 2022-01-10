@@ -7,7 +7,7 @@ RSpec.describe GamesController , type: :controller do
   let(:game_w_questions) { FactoryBot.create(:game_with_questions, user: user) }
 
   context 'when the user is not logged in' do
-    it 'kicks user from #show' do
+    it 'kick from #show' do
       get :show, params: { id: game_w_questions.id }
 
       expect(response.status).not_to eq(200)
