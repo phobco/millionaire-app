@@ -1,11 +1,12 @@
 require 'rails_helper'
+require 'support/my_spec_helper'
 
 RSpec.describe GamesController , type: :controller do
   let(:user) { FactoryBot.create(:user) }
   let(:admin) { FactoryBot.create(:user, is_admin: true) }
   let(:game_w_questions) { FactoryBot.create(:game_with_questions, user: user) }
 
-  context 'when user not authorised' do
+  context 'when the user is not logged in' do
     it 'kicks user from #show' do
       get :show, params: { id: game_w_questions.id }
 
@@ -15,7 +16,7 @@ RSpec.describe GamesController , type: :controller do
     end
   end
   
-  context 'when user is authorised' do
+  context 'when user is logged in' do
     before(:each) { sign_in user }
 
     it 'creates the game' do
