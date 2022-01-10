@@ -16,7 +16,7 @@ RSpec.describe GameQuestion, type: :model do
     end
 
     it 'correct .answer_correct?' do
-      expect(game_question.answer_correct?('b')).to be_truthy
+      expect(game_question.answer_correct?('b')).to be(true)
     end
 
     it 'correct .level & .text delegates' do
@@ -64,5 +64,32 @@ RSpec.describe GameQuestion, type: :model do
   
     expect(ff).to include('b')
     expect(ff.size).to eq(2)
+  end
+
+  describe '#add_friend_call' do
+    context 'when the user call friend help' do
+      it 'has empty key before use' do
+        expect(game_question.help_hash).not_to include(:friend_call)
+      end
+
+      it 'include the key after use' do
+        game_question.add_friend_call
+        expect(game_question.help_hash).to include(:friend_call)
+      end
+
+      it 'be a string' do
+        game_question.add_friend_call
+        friend_call = game_question.help_hash[:friend_call]
+
+        expect(friend_call).to be_a(String)
+      end
+
+      it 'contain one of keys' do
+        game_question.add_friend_call
+        friend_call = game_question.help_hash[:friend_call]
+
+        expect(friend_call.last).to match(/[ABCD]/)
+      end
+    end
   end
 end
