@@ -68,34 +68,36 @@ RSpec.describe Game, type: :model do
     end
   end
 
-  context '.status' do
-    before(:each) do
-      game_w_questions.finished_at = Time.now
-      expect(game_w_questions.finished?).to be_truthy
-    end
+  describe '.status' do
+    context 'when the game is finished' do
+      before(:each) do
+        game_w_questions.finished_at = Time.now
+        expect(game_w_questions.finished?).to be_truthy
+      end
+      
+      it 'finishes game with a fail status' do
+        game_w_questions.is_failed = true
+        expect(game_w_questions.status).to eq(:fail)
+      end
+
+      it 'finishes the game with timeout status' do
+        game_w_questions.created_at = 1.hour.ago
+        game_w_questions.is_failed = true
+        expect(game_w_questions.status).to eq(:timeout)
+      end
+      
+      it 'finishes game with won status' do
+        game_w_questions.current_level = Question::QUESTION_LEVELS.max + 1
+        expect(game_w_questions.status).to eq(:won)
+      end
     
-    it ':fail' do
-      game_w_questions.is_failed = true
-      expect(game_w_questions.status).to eq(:fail)
-    end
-
-    it ':timeout' do
-      game_w_questions.created_at = 1.hour.ago
-      game_w_questions.is_failed = true
-      expect(game_w_questions.status).to eq(:timeout)
-    end
-
-    it ':won' do
-      game_w_questions.current_level = Question::QUESTION_LEVELS.max + 1
-      expect(game_w_questions.status).to eq(:won)
-    end
-
-    it ':money' do
-      expect(game_w_questions.status).to eq(:money)
+      it 'finishes game with money status' do
+        expect(game_w_questions.status).to eq(:money)
+      end
     end
   end
 
-  describe 'answer_current_question!' do
+  describe '.answer_current_question!' do
     context 'when answer is correct' do
       let(:q) { game_w_questions.current_game_question }
       
