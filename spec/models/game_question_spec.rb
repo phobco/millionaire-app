@@ -67,25 +67,24 @@ RSpec.describe GameQuestion, type: :model do
   end
 
   describe '#add_friend_call' do
-    context 'when the user call friend help' do
-      it 'has empty key before use' do
-        expect(game_question.help_hash).not_to include(:friend_call)
-      end
+    it 'has empty key before use' do
+      expect(game_question.help_hash).not_to include(:friend_call)
+    end
 
+    context 'when the user call friend help' do
+      before { game_question.add_friend_call }
+      
       it 'include the key after use' do
-        game_question.add_friend_call
         expect(game_question.help_hash).to include(:friend_call)
       end
 
       it 'be a string' do
-        game_question.add_friend_call
         friend_call = game_question.help_hash[:friend_call]
 
-        expect(friend_call).to be_a(String)
+        expect(friend_call).to match('считает, что это вариант')
       end
 
       it 'contain one of keys' do
-        game_question.add_friend_call
         friend_call = game_question.help_hash[:friend_call]
 
         expect(friend_call.last).to match(/[ABCD]/)
