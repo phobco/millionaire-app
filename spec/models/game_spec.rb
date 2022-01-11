@@ -105,21 +105,17 @@ RSpec.describe Game, type: :model do
       end
 
       context 'and the question is last' do
-        let(:last_correct_answer) do
+        before do
           game_w_questions.current_level = Question::QUESTION_LEVELS.max
           game_w_questions.answer_current_question!(q.correct_answer_key)
         end
 
         it 'finishes the game with won status' do
-          last_correct_answer
-
           expect(game_w_questions.status).to eq(:won)
           expect(game_w_questions.finished?).to be(true)
         end
 
         it 'assigns the maximum prize' do
-          last_correct_answer
-
           expect(game_w_questions.prize).to eq(Game::PRIZES.last)
         end
       end
