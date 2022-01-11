@@ -54,8 +54,8 @@ RSpec.describe Game, type: :model do
       prize = game_w_questions.prize
       expect(prize).to be > 0
 
-      expect(game_w_questions.status).to eq :money
-      expect(game_w_questions.finished?).to be_truthy
+      expect(game_w_questions.status).to eq(:money)
+      expect(game_w_questions.finished?).to be(true)
       expect(user.balance).to eq prize
     end
 
@@ -70,10 +70,7 @@ RSpec.describe Game, type: :model do
 
   describe '.status' do
     context 'when the game is finished' do
-      before(:each) do
-        game_w_questions.finished_at = Time.now
-        expect(game_w_questions.finished?).to be_truthy
-      end
+      before { game_w_questions.finished_at = Time.now }
       
       it 'finishes game with a fail status' do
         game_w_questions.is_failed = true
@@ -100,7 +97,7 @@ RSpec.describe Game, type: :model do
   describe '.answer_current_question!' do
     context 'when answer is correct' do
       let(:q) { game_w_questions.current_game_question }
-      
+
       it 'continues the game with in_progress status' do
         expect(game_w_questions.answer_current_question!('d')).to eq(true)
         expect(game_w_questions.status).to eq(:in_progress)
@@ -108,17 +105,20 @@ RSpec.describe Game, type: :model do
       end
 
       context 'and the question is last' do
-        it 'finishes the game with won status' do
+        let(:last_correct_answer) do
           game_w_questions.current_level = Question::QUESTION_LEVELS.max
           game_w_questions.answer_current_question!(q.correct_answer_key)
+        end
+
+        it 'finishes the game with won status' do
+          last_correct_answer
 
           expect(game_w_questions.status).to eq(:won)
           expect(game_w_questions.finished?).to be(true)
         end
 
         it 'assigns the maximum prize' do
-          game_w_questions.current_level = Question::QUESTION_LEVELS.max
-          game_w_questions.answer_current_question!(q.correct_answer_key)
+          last_correct_answer
 
           expect(game_w_questions.prize).to eq(Game::PRIZES.last)
         end
