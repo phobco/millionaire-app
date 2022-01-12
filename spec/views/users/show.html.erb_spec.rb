@@ -18,7 +18,7 @@ RSpec.describe 'users/show', type: :view do
     end
 
     it 'render game partial' do
-      assign(:games, [FactoryBot.build_stubbed(:game, id: 5, created_at: 1.minute.ago, current_level: 5)])
+      assign(:games, [FactoryBot.build_stubbed(:game, id: 55, created_at: 1.minute.ago, current_level: 5)])
       stub_template 'users/_game.html.erb' => 'User game goes here'
       render
 
@@ -42,7 +42,7 @@ RSpec.describe 'users/show', type: :view do
     end
 
     it 'render game partial' do
-      assign(:games, [FactoryBot.build_stubbed(:game, id: 7, created_at: 1.minute.ago, current_level: 7)])
+      assign(:games, [FactoryBot.build_stubbed(:game, id: 57, created_at: 1.minute.ago, current_level: 7)])
       stub_template 'users/_game.html.erb' => 'User game goes here'
       render
 
