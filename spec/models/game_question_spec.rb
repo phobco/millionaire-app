@@ -78,7 +78,7 @@ RSpec.describe GameQuestion, type: :model do
         expect(game_question.help_hash).to include(:friend_call)
       end
 
-      it 'be a string' do
+      it 'displays a correct friend call help phrase' do
         friend_call = game_question.help_hash[:friend_call]
 
         expect(friend_call).to match('считает, что это вариант')
