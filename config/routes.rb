@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   end
 
   resource :questions, only: %i[new create]
+
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 end
