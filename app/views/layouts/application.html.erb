@@ -3,6 +3,8 @@
   <head>
     <title>Millionaire</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= favicon_link_tag asset_path('favicon.ico') %>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -43,7 +45,7 @@
     <div class="container mt-3">
        <% if flash.any? %>
           <% flash.each do |name, message| %>
-            <div class="alert alert-<%= flash_class_name(name) %> alert-dismissible fade show" role="alert">
+            <div class="alert alert-<%= flash_class_name(name) %> alert-dismissible fade show" role="alert" id="flash">
               <%= message %>
               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
