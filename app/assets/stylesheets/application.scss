@@ -58,10 +58,16 @@ h2, h3 {
   font-size: 175%;
 }
 
+.btn-block {
+  margin-top: 10px;
+  width: 100%;
+}
+
 .list-group-prizes .list-group-item {
   background: rgba(213, 235, 255, 0.2);
   border-width: 1px;
   border-color: rgba(213, 235, 255, 1);
+  color: white;
 }
 
 .list-group-prizes .active {
