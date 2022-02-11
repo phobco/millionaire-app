@@ -15,10 +15,18 @@ ru:
   devise:
     sessions:
       new:
-        log_in: Войти
         email: Email
         password: Пароль
-
+    registrations:
+      new:
+        password_length: 'не менее %{count} символов'
+      edit:
+        back: Назад
+        edit: Редактирование
+        password_length: 'не менее %{count} символов'
+        new_password: Новый пароль
+        confirm_new_password: Подтвердите новый пароль
+        delete: Удалить
 
   game_help:
     friends:
