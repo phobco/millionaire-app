@@ -19,6 +19,8 @@ ru:
         password: Пароль
     registrations:
       new:
+        name: Имя
+        your_name: Ваше имя
         password_length: 'не менее %{count} символов'
         password: Пароль
         password_confirm: Подтвердите пароль

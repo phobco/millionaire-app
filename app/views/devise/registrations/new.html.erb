@@ -10,6 +10,11 @@
         <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: :email, class: 'form-control' %>
       </div>
 
+      <div class="field justify-content-center mb-2">
+        <%= f.label t('.name') %>
+        <%= f.text_field :name, autofocus: true, placeholder: t('.your_name'), class: 'form-control' %>
+      </div>
+
       <div class="field mb-2">
         <%= f.label :password %>
         <% if @minimum_password_length %>
