@@ -1,6 +1,6 @@
 <div class="row justify-content-md-center">
   <div class="col-md-4 justify-content-center align-items-center">
-    <h2 class="text-center mb-3"><%= t('.log_in') %></h2>
+    <h2 class="text-center mb-3"><%= t('.sign_in') %></h2>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field mb-2">
@@ -21,7 +21,7 @@
       <% end %>
 
       <div class="actions mt-3 d-grid gap-2">
-        <%= f.submit t('.log_in'), class: 'btn btn-primary' %>
+        <%= f.submit t('.sign_in'), class: 'btn btn-primary' %>
       </div>
     <% end %>
 
