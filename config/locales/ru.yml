@@ -30,6 +30,10 @@ ru:
         confirm_new_password: Подтвердите новый пароль
         delete: Удалить
 
+  games:
+    help:
+      spectators_guess: 'Зрители считают:'
+
   game_help:
     friends:
       - "Жора"
