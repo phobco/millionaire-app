@@ -20,6 +20,8 @@ ru:
     registrations:
       new:
         password_length: 'не менее %{count} символов'
+        password: Пароль
+        password_confirm: Подтвердите пароль
       edit:
         back: Назад
         edit: Редактирование

@@ -7,7 +7,7 @@
 
       <div class="field justify-content-center mb-2">
         <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: :email, class: 'form-control' %>
       </div>
 
       <div class="field mb-2">
@@ -15,12 +15,12 @@
         <% if @minimum_password_length %>
         <em>(<%= t('.password_length', count: @minimum_password_length) %>)</em>
         <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: t('.password'), class: 'form-control' %>
       </div>
 
       <div class="field mb-2">
         <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: t('.password_confirm'), class: 'form-control' %>
       </div>
 
       <div class="actions mt-4 d-grid gap-2">
