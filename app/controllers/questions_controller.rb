@@ -15,18 +15,25 @@ class QuestionsController < ApplicationController
     elsif q_file.respond_to?(:path)
       file_lines = File.readlines(q_file.path)
     else
-      redirect_to new_questions_path, alert: "Bad file_data: #{q_file.class.name}, #{q_file.inspect}"
-      return false
+      redirect_to new_questions_path, alert: t(
+                                        'controllers.questions.bad_file_data',
+                                        class: q_file.class.name,
+                                        info: q_file.inspect
+                                      )
+      
+      false
     end
 
     start_time = Time.now
 
     failed_count = create_questions_from_lines(file_lines, level)
 
-    redirect_to new_questions_path,
-                notice: "Уровень #{level}, обработано #{file_lines.size}," +
-                  " создано #{file_lines.size - failed_count}," +
-                  " время #{Time.at((Time.now - start_time).to_i).utc.strftime '%S.%L сек'}"
+    redirect_to new_questions_path, notice: t(
+                                      'controllers.questions.create_info',
+                                      level: level, size: file_lines.size,
+                                      created: file_lines.size - failed_count,
+                                      time: "#{Time.at((Time.now - start_time).to_i).utc.strftime '%S.%L сек'}"
+                                    )
   end
 
   private

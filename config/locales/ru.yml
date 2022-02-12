@@ -12,6 +12,9 @@ ru:
       help_used: "Вы использовали подсказку"
       help_not_used: "Подсказка уже была использована!"
       not_your_game: "Это не ваша игра!"
+    questions:
+      bad_file_data: 'Bad file_data: %{class}, %{info}'
+      create_info: 'Уровень %{level}, обработано %{size}, создано %{created}, время %{time}'
 
   devise:
     registrations:
