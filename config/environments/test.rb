@@ -1,4 +1,4 @@
-require "active_support/core_ext/integer/time"
+require 'active_support/core_ext/integer/time'
 
 # The test environment is used exclusively to run your application's
 # test suite. You never need to work with it otherwise. Remember that
@@ -51,5 +51,4 @@ Rails.application.configure do
   config.assets.debug = true
   config.asset_host   = 'http://localhost:3000'
   config.static_cache_control = 'public, max-age=3600'
-  
 end
