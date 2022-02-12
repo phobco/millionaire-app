@@ -4,18 +4,24 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.0.3'
 
 gem 'rails', '~> 6.1.4', '>= 6.1.4.4'
+
 gem 'pg', '~> 1.1'
+
 gem 'puma', '~> 5.0'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.0'
 gem 'jbuilder', '~> 2.7'
+
 gem 'devise'
 gem 'devise-i18n'
 gem 'rails-i18n', '~> 6.0.0'
-gem 'font-awesome-rails'
-gem 'rails-controller-testing'
 gem 'rails_admin'
 gem 'rails_admin-i18n'
+
+gem 'font-awesome-rails'
+gem 'rails-controller-testing'
+
+gem 'mailjet'
 
 group :development, :test do
   gem 'byebug'
