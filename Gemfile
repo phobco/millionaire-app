@@ -21,8 +21,6 @@ gem 'rails_admin-i18n'
 gem 'font-awesome-rails'
 gem 'rails-controller-testing'
 
-gem 'mailjet'
-
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 5.0.0'
