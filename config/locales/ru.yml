@@ -35,6 +35,10 @@ ru:
       new:
         email: Email
         password: Пароль
+    passwords:
+      edit:
+        enter_new_password: Введите новый пароль
+        password_length: 'не менее %{count} символов'
 
   games:
     help:
