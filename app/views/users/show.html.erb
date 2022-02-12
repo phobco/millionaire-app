@@ -2,7 +2,7 @@
   <div class="col-md-8">
     <div>
       <h1><%= @user.name %></h1>
-      <%= link_to t('.change_name_password'), edit_user_registration_path(@user) if @user == current_user %>
+      <%= link_to t('.change_name_password'), edit_user_registration_path(@user), class: 'link-info' if @user == current_user %>
     </div>
     <table class="table table-borderless users-table text-light">
       <thead>
