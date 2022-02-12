@@ -23,6 +23,7 @@ ru:
         confirm_new_password: Подтвердите новый пароль
         delete: Удалить
         edit: Редактирование
+        name: Имя
         new_password: Новый пароль
         password_length: 'не менее %{count} символов'
       new:
