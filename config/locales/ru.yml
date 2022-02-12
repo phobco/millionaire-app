@@ -2,6 +2,7 @@ ru:
   controllers:
     games:
       bad_answer: "Правильный ответ: %{answer}. Игра закончена, ваш приз %{prize}"
+      error_creating_game: 'Error creating game for user %{user}, msg = %{msg}. %{backtrace}'
       game_created: "Игра началась в %{created_at}, время пошло"
       game_not_created: "Не удалось создать игру :( Свяжитесь с админом"
       game_not_finished: "Вы еще не завершили игру"
