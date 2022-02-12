@@ -54,6 +54,18 @@ ru:
     timeout: 'время'
     won: 'победа'
 
+  layouts:
+    application:
+      admin: Админка
+      add_new_questions: Залить новые вопросы
+      creator: 'Автор проекта:'
+      goodprogrammer: Хороший программист 2021 — 2022
+      log_in: Войти
+      log_out: Выйти
+      new_game: Новая игра
+      sign_up: Зарегистрироваться
+      title: Millionaire
+
   number:
     currency:
       format:

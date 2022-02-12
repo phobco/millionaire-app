@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Millionaire</title>
+    <title><%= t('.title') %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= favicon_link_tag asset_path('favicon.ico') %>
 
@@ -16,13 +16,13 @@
     
     <div class="navbar navbar-light bg-custom">
       <div class="container">
-        <%= link_to 'Millionaire', root_path, class: 'navbar-brand text-light' %>
+        <%= link_to t('.title'), root_path, class: 'navbar-brand text-light' %>
         <% if user_signed_in? %>
           <div class="navbar-form navbar-right">
 
             <% if current_user.is_admin? %>
-              <%= link_to 'Админка', rails_admin_path, class: 'btn navbar-btn btn-danger btn-xs' %>
-              <%= link_to 'Залить новые вопросы', new_questions_path, class: 'btn navbar-btn btn-warning btn-xs' %>
+              <%= link_to t('.admin'), rails_admin_path, class: 'btn navbar-btn btn-danger btn-xs' %>
+              <%= link_to t('.add_new_questions'), new_questions_path, class: 'btn navbar-btn btn-warning btn-xs' %>
             <% end %>
 
 
@@ -30,13 +30,13 @@
                         user_path(current_user),
                         class: 'btn text-light'
             %>
-            <%= link_to 'Новая игра', games_path, method: :post, class: 'btn btn-success' %>
-            <%= link_to 'Выйти', destroy_user_session_path, method: :delete, class: 'btn btn-outline-danger' %>
+            <%= link_to t('.new_game'), games_path, method: :post, class: 'btn btn-success' %>
+            <%= link_to t('.log_out'), destroy_user_session_path, method: :delete, class: 'btn btn-outline-danger' %>
           </div>
         <% else %>
           <div class="navbar-form navbar-right">
-            <%= link_to 'Войти', new_user_session_path, class: 'btn text-light' %>
-            <%= link_to 'Зарегистрироваться', new_user_registration_path, class: 'btn btn-success' %>
+            <%= link_to t('.log_in'), new_user_session_path, class: 'btn text-light' %>
+            <%= link_to t('.sign_up'), new_user_registration_path, class: 'btn btn-success' %>
           </div>
         <% end %>
       </div>
@@ -59,8 +59,16 @@
         </div>
       </div>
 
-      <footer class="buffer-top-lg text-right">
-        <p>&copy; Хороший программист 2021</p>
+      <footer class="container mt-auto d-flex flex-wrap justify-content-between align-items-center py-3  mb-0">
+
+        <div class="col-md-4 d-flex align-items-center">
+          <a class="link-light text-decoration-none" href="https://goodprogrammer.ru"><p class="pt-3">&copy; <%= t('.goodprogrammer') %></p></a>
+        </div>
+      
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+          <li class="ms-3"><span class="align-middle"><%= t('.creator') %></span></li>
+          <li class="ms-3"><a href="https://github.com/phobco"><img src="<%= asset_path('gh.png') %>" class="bi" width="30" height="30"></a></li>
+        </ul>
       </footer>
     </div>
 
