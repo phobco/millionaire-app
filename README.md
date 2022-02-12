@@ -1,24 +1,58 @@
-# README
+# Who Wants to Be a Millionare?
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+###### Ruby: `3.0.3` Rails: `6.1.4`
 
-Things you may want to cover:
+### About
 
-* Ruby version
+[Ruby on Rails](https://rubyonrails.org/) version of the world-famous game [Who Wants to Be a Millionare](https://en.wikipedia.org/wiki/Who_Wants_to_Be_a_Millionaire).
 
-* System dependencies
+- **15 Questions**
+- **15 Difficulty levels**
+- **3 Lifelines**
+  - 50:50 (Fifty-Fifty)
+  - Phone a Friend
+  - Ask the Audience
+- **3 Guarantee points**
+  - 1000
+  - 32000
+  - 1000000
+- **0 Mistakes**
 
-* Configuration
+The application is covered with tests using: `RSpec` `Capybara` `factory-bot`
 
-* Database creation
+It is possible to recover the password from the account using e-mail.
 
-* Database initialization
+Users with `admin` status can load questions.
 
-* How to run the test suite
+### Usage
+1. Clone repo
+```
+git clone git@github.com:phobco/millionaire-game.git
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+2. Install gems
+```
+bundle install
+```
 
-* Deployment instructions
+3. Create database and run migrations (`PostgreSQL` database is used)
+```
+rails db:create
+rails db:migrate
+```
 
-* ...
+4. Load demo questions
+```
+rails db:seed
+```
+
+5. Start server
+```
+rails s
+```
+
+Open `localhost:3000` in a browser.
+
+#### Adding questions
+
+To see admin panel — set `User` attribute `is_admin` to `true`
