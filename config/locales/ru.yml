@@ -67,8 +67,8 @@ ru:
     application:
       admin: Админка
       add_new_questions: Залить новые вопросы
-      creator: 'Автор проекта:'
       goodprogrammer: Хороший программист 2021 — 2022
+      link: 'https://github.com/phobco/millionaire-game'
       log_in: Войти
       log_out: Выйти
       new_game: Новая игра
