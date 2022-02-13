@@ -1,6 +1,7 @@
 # Who Wants to Be a Millionare?
 
 ###### Ruby: `3.0.3` Rails: `6.1.4`
+###### Language: `Russian`
 
 ### About
 
@@ -27,32 +28,48 @@ Users with `admin` status can load questions.
 ### Usage
 1. Clone repo
 ```
-git clone git@github.com:phobco/millionaire-game.git
+$ git clone git@github.com:phobco/millionaire-game.git
 ```
 
 2. Install gems
 ```
-bundle install
+$ bundle
 ```
 
 3. Create database and run migrations (`PostgreSQL` database is used)
 ```
-rails db:create
-rails db:migrate
+$ rails db:create
+$ rails db:migrate
 ```
 
 4. Load demo questions
 ```
-rails db:seed
+$ rails db:seed
 ```
 
 5. Start server
 ```
-rails s
+$ rails s
 ```
 
 Open `localhost:3000` in a browser.
 
-#### Adding questions
+### Get admin status
 
-To see admin panel — set `User` attribute `is_admin` to `true`
+Run Rails console
+```
+$ rails c
+```
+
+Find the user's `id` by `name`
+```ruby
+> User.pluck(:id, :name)
+# => [[1, "phobco"]]
+```
+
+Set `User` attribute `is_admin` to `true`
+```ruby
+> User.find(1).update(is_admin: true)
+```
+
+Admin panel is now available.
