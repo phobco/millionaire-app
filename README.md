@@ -28,7 +28,7 @@ Users with `admin` status can load questions.
 
 Live demo [Who Wants to Be a Millionaire](https://millionaire-phobco.herokuapp.com/) (wait about 10 seconds for the server to start)
 
-### Usage
+### Installation
 1. Clone repo
 ```
 $ git clone git@github.com:phobco/millionaire-game.git
