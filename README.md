@@ -1,7 +1,8 @@
 # Who Wants to Be a Millionare?
 
-###### Ruby: `3.0.3` Rails: `6.1.4`
-###### Language: `Russian`
+###### Ruby: `3.0.3` Rails: `6.1.4` Language: `Russian`
+
+As part of the [goodprogrammer.ru](https://goodprogrammer.ru/) course.
 
 ### About
 
@@ -24,6 +25,8 @@ The application is covered with tests using: `RSpec` `Capybara` `factory-bot`
 It is possible to recover the password from the account using e-mail.
 
 Users with `admin` status can load questions.
+
+Live demo [Who Wants to Be a Millionaire](https://millionaire-phobco.herokuapp.com/) (wait about 10 seconds for the server to start)
 
 ### Usage
 1. Clone repo
