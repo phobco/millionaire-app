@@ -15,9 +15,9 @@ As part of the [goodprogrammer.ru](https://goodprogrammer.ru/) course.
   - Phone a Friend
   - Ask the Audience
 - **3 Guarantee points**
-  - 1000
-  - 32000
-  - 1000000
+  - `1 000`
+  - `32 000`
+  - `1 000 000`
 - **0 Mistakes**
 
 The application is covered with tests using: `RSpec` `Capybara` `factory-bot`
@@ -25,8 +25,6 @@ The application is covered with tests using: `RSpec` `Capybara` `factory-bot`
 It is possible to recover the password from the account using e-mail.
 
 Users with `admin` status can load questions.
-
-Live demo [Who Wants to Be a Millionaire](https://millionaire-phobco.herokuapp.com/) (wait about 10 seconds for the server to start)
 
 ### Installation
 1. Clone repo
@@ -70,9 +68,13 @@ Find the user's `id` by `name`
 # => [[1, "phobco"]]
 ```
 
-Set `User` attribute `is_admin` to `true`
+Find `User` by `id` and set attribute `is_admin` to `true`
 ```ruby
 > User.find(1).update(is_admin: true)
 ```
 
 Admin panel is now available.
+
+#### Live demo
+
+[Who Wants to Be a Millionaire](https://millionaire-phobco.herokuapp.com/) (wait about 10 seconds for the server to start)
