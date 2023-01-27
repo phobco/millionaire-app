@@ -74,7 +74,3 @@ Find `User` by `id` and set attribute `is_admin` to `true`
 ```
 
 Admin panel is now available.
-
-#### Live demo
-
-[Who Wants to Be a Millionaire](https://millionaire-phobco.herokuapp.com/) (wait about 10 seconds for the server to start)
